@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>search.qml</file>
+        <file>book.qml</file>
+        <file>confirm.qml</file>
+        <file>test.qml</file>
+    </qresource>
+</RCC>

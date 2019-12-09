@@ -5,6 +5,8 @@ import QtQuick 2.0
 
 import io.qt.examples 1.0
 
+
+
 ApplicationWindow {
     id: logWindow
     minimumWidth: 640
@@ -15,6 +17,9 @@ ApplicationWindow {
     title: qsTr("Log in")
     color:"#c1d5f5"
 
+    ReservationData{
+            id:passagner1
+        }
 
     Operator{
         id:mOperator

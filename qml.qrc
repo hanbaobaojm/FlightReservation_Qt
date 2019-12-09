@@ -4,6 +4,6 @@
         <file>search.qml</file>
         <file>book.qml</file>
         <file>confirm.qml</file>
-        <file>test.qml</file>
+        <file>Reservation.qml</file>
     </qresource>
 </RCC>

@@ -17,9 +17,9 @@ class ReservationData : public QObject
     Q_PROPERTY(QString passengerMobile READ passengerMobile WRITE setPassengerMobile NOTIFY passengerMobileChanged)
     Q_PROPERTY(QString passengerMail READ passengerMail WRITE setPassengerMail NOTIFY passengerMailChanged)
     Q_PROPERTY(QString passengerPassport READ passengerPassport WRITE setPassengerPassport NOTIFY passengerPassportChanged)
-    Q_PROPERTY(bool passengerGender READ passengerGender WRITE setPassengerGender NOTIFY passengerGenderChanged)
+    Q_PROPERTY(QString passengerGender READ passengerGender WRITE setPassengerGender NOTIFY passengerGenderChanged)
     Q_PROPERTY(int luggageNumber READ luggageNumber WRITE setLuggageNumber NOTIFY luggageNumberChanged)
-    Q_PROPERTY(int seatNumber READ seatNumber WRITE setSeatNumber NOTIFY seatNumberChanged)
+    Q_PROPERTY(QString seatNumber READ seatNumber WRITE setSeatNumber NOTIFY seatNumberChanged)
 
 public:
     explicit ReservationData(QObject *parent = nullptr);
@@ -30,28 +30,28 @@ public:
     QString departureTime();
     QString arriveCity();
     QString arriveTime();
-    void setFlightID(const QString &flightID);
-    void setPrice(const int &price);
-    void setDepartureCity(const QString &departureCity);
-    void setDepartureTime(const QString &departureTime);
-    void setArriveCity(const QString &arriveCity);
-    void setArriveTime(const QString &arriveTime);
+    Q_INVOKABLE void setFlightID(const QString &flightID);
+    Q_INVOKABLE void setPrice(const int &price);
+    Q_INVOKABLE void setDepartureCity(const QString &departureCity);
+    Q_INVOKABLE void setDepartureTime(const QString &departureTime);
+    Q_INVOKABLE void setArriveCity(const QString &arriveCity);
+    Q_INVOKABLE void setArriveTime(const QString &arriveTime);
     int passengerID();
     QString passengerName();
     QString passengerMobile();
     QString passengerMail();
     QString passengerPassport();
-    bool passengerGender();
-    void setPassengerID(const int &passengerID);
-    void setPassengerName(const QString &passengerName);
-    void setPassengerMobile(const QString &passengerMobile);
-    void setPassengerMail(const QString &passengerMail);
-    void setPassengerPassport(const QString &passengerPassport);
-    void setPassengerGender(const bool &passengerGender);
+    QString passengerGender();
+    Q_INVOKABLE void setPassengerID(const int &passengerID);
+    Q_INVOKABLE void setPassengerName(const QString &passengerName);
+    Q_INVOKABLE void setPassengerMobile(const QString &passengerMobile);
+    Q_INVOKABLE void setPassengerMail(const QString &passengerMail);
+    Q_INVOKABLE void setPassengerPassport(const QString &passengerPassport);
+    Q_INVOKABLE void setPassengerGender(const QString &passengerGender);
     int luggageNumber();
-    int seatNumber();
-    void setLuggageNumber(const int &luggageNumber);
-    void setSeatNumber(const int &seatNumber);
+    QString seatNumber();
+    Q_INVOKABLE void setLuggageNumber(const int &luggageNumber);
+    Q_INVOKABLE void setSeatNumber(const QString &seatNumber);
 
 signals:
     void flightIDChanged();
@@ -82,8 +82,8 @@ private:
     QString m_passengerMobile;
     QString m_passengerMail;
     QString m_passengerPassport;
-    bool m_passengerGender;
+    QString m_passengerGender;
     int m_luggageNumber;
-    int m_seatNumber;
+    QString m_seatNumber;
 };
 #endif // RESERVATIONDATA_H

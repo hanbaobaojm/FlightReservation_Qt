@@ -12,6 +12,26 @@ Flight::Flight(QObject *parent):
     m_occupancy = 49;
     m_price = 100;
 }
+Flight::Flight(const Flight &f){
+    m_price = f.m_price;
+    m_flightID = f.m_flightID;
+    m_departureCity = f.m_departureCity;
+    m_departureTime = f.m_departureTime;
+    m_arriveCity = f.m_arriveCity;
+    m_arriveTime = f.m_arriveTime;
+    m_capacity = f.m_capacity;
+    m_occupancy = f.m_occupancy;
+}
+Flight & Flight::operator = (const Flight & f){
+    m_price = f.m_price;
+    m_flightID = f.m_flightID;
+    m_departureCity = f.m_departureCity;
+    m_departureTime = f.m_departureTime;
+    m_arriveCity = f.m_arriveCity;
+    m_arriveTime = f.m_arriveTime;
+    m_capacity = f.m_capacity;
+    m_occupancy = f.m_occupancy;
+}
 QString Flight::flightID(){
     return m_flightID;
 }

@@ -2,6 +2,7 @@
 #define FLIGHT_H
 #include <QObject>
 #include <QString>
+#include<QMetaType>
 
 class Flight : public QObject
 {
@@ -19,6 +20,9 @@ class Flight : public QObject
 public:
     explicit Flight(QObject *parent = nullptr);
 
+    Flight(const Flight &f);
+    Flight & operator = (const Flight & RightSides);
+
     QString flightID();
     int price();
     QString departureCity();
@@ -35,6 +39,7 @@ public:
     void setArriveCity(const QString &arriveCity);
     void setArriveTime(const QString &arriveTime);
     void setCapacity(const int &capacity);
+    //Flight getFlight(const QString &flightID);
 
 signals:
     void occupancyChanged();
@@ -62,4 +67,6 @@ void emitTheSignal(){
     emit demoSignal();
 }
 };
+Q_DECLARE_METATYPE(Flight)
+//Q_DECLARE_METATYPE(Flight);
 #endif // FLIGHT_H

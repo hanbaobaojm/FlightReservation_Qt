@@ -8,7 +8,7 @@ ReservationData::ReservationData(QObject *parent):
     m_passengerMobile = "123456";
     m_passengerMail = "Bob@user.com";
     m_passengerPassport = "A101101";
-    m_passengerGender = true;
+    m_passengerGender = "Male";
     m_flightID = "OS722";
     m_departureCity = "Budapest";
     m_departureTime = "18:40";
@@ -16,7 +16,7 @@ ReservationData::ReservationData(QObject *parent):
     m_arriveTime = "19:30";
     m_price = 100;
     m_luggageNumber = 0;
-    m_seatNumber = 0;
+    m_seatNumber = "21A";
 }
 int ReservationData::passengerID(){
     return m_passengerID;
@@ -33,7 +33,7 @@ QString ReservationData::passengerMail(){
 QString ReservationData::passengerPassport(){
     return m_passengerPassport;
 }
-bool ReservationData::passengerGender(){
+QString ReservationData::passengerGender(){
     return m_passengerGender;
 }
 void ReservationData::setPassengerID(const int &passengerID){
@@ -71,7 +71,7 @@ void ReservationData::setPassengerPassport(const QString &passengerPassport){
     m_passengerPassport = passengerPassport;
     emit passengerPassportChanged();
 }
-void ReservationData::setPassengerGender(const bool &passengerGender){
+void ReservationData::setPassengerGender(const QString &passengerGender){
     if (passengerGender == m_passengerGender)
         return;
 
@@ -137,7 +137,7 @@ void ReservationData::setArriveTime(const QString &arriveTime){
 int ReservationData::luggageNumber(){
     return m_luggageNumber;
 }
-int ReservationData::seatNumber(){
+QString ReservationData::seatNumber(){
     return m_seatNumber;
 }
 void ReservationData::setLuggageNumber(const int &luggageNumber){
@@ -146,7 +146,7 @@ void ReservationData::setLuggageNumber(const int &luggageNumber){
     m_luggageNumber = luggageNumber;
     emit luggageNumberChanged();
 }
-void ReservationData::setSeatNumber(const int &seatNumber){
+void ReservationData::setSeatNumber(const QString &seatNumber){
     if(seatNumber == m_seatNumber)
         return;
     m_seatNumber = seatNumber;
